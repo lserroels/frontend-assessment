@@ -7,7 +7,7 @@
       <h4>description: {{ propertyInfo.Bedrooms }} | {{ propertyInfo.Bathrooms }}</h4>
       </div>
       <div class="card-body">
-      <h1>Price: {{ propertyInfo.SalePrice }}</h1>
+      <h1>Price: {{ propertyInfo['Sale Price'] }}</h1>
     </div>
 
     <div class="card-footer">
