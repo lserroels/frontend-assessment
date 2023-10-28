@@ -1,9 +1,8 @@
 <template>
     <div id="filterByPriceComponent">
         <h4>Price range:</h4>
-        <!-- <select v-model="selectedValue" @change="filterByPrice"> -->
         <div>
-            <input type="range" v-model="selectedValue" :min="min" :max="max" />
+            <input type="range" v-model="selectedValue" :min="min" :max="max" @change="filterByPrice" />
             <span>{{ selectedValue }}</span>
         </div>
     </div>
@@ -15,23 +14,18 @@ export default {
     name: 'FilterByPriceComponent',
     props: {
         min: Number,
-        max: Number
+        max: Number,
     },
     data() {
         return {
+            selectedValue: 0
         }
     },
-    computed: {
-        selectedValue: {
-            get() {
-                return this.max; 
-            },
-            set(value) {
-                this.$emit('price-filter-event', value);
-            },
-        },
+    methods: {
+        filterByPrice() {
+            this.$emit('price-filter-event', this.selectedValue)
+        }
     },
-    
 }
 </script>
   

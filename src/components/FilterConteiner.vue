@@ -3,7 +3,7 @@
         <FilterByBedrooms :bedsOptions=getBedsOptions @bedrooms-filter-event="FilterByBedrooms"></FilterByBedrooms>
         <FilterByBathrooms :bathsOptions=getBathOptions @bathrooms-filter-event="FilterByBathrooms"></FilterByBathrooms>
         <FilterByParking :parkingOptions=getParkingOptions @parking-filter-event="FilterByParking"></FilterByParking>
-        <FilterByPrice :max=getMaxPriceRange :min=getMinPriceRange @price-filter-event="FilterByPrice"></FilterByPrice>
+        <FilterByPrice :max=getMaxPriceRange :min=getMinPriceRange :selectedValueProp=getMaxPriceRange @price-filter-event="FilterByPrice"></FilterByPrice>
     </div>
 </template>
     
@@ -24,7 +24,7 @@ export default {
             selectedBedrooms: '',
             selectedBathrooms: '',
             selectedParking: '',
-            selectedPrice: null
+            selectedPrice: 0
         }
     },
     components: {
@@ -38,7 +38,7 @@ export default {
             return this.propertiesList.filter(prop => (this.selectedBedrooms == '' || prop.Bedrooms == this.selectedBedrooms)
                 && (this.selectedBathrooms == '' || prop.Bathrooms == this.selectedBathrooms)
                 && (this.selectedParking == '' || prop.Parking == this.selectedParking)
-                && (prop['Sale Price'] <= this.selectedPrice))
+                && (this.selectedPrice == 0 || prop['Sale Price'] <= this.selectedPrice))
         },
         getBedsOptions() {
             return [...new Set(this.propertiesList.map(item => item.Bedrooms).sort())];
