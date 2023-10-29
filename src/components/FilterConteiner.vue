@@ -1,9 +1,23 @@
 <template>
     <div id="filterConteinerComponent">
-        <FilterByBedrooms :bedsOptions=getBedsOptions @bedrooms-filter-event="FilterByBedrooms"></FilterByBedrooms>
-        <FilterByBathrooms :bathsOptions=getBathOptions @bathrooms-filter-event="FilterByBathrooms"></FilterByBathrooms>
-        <FilterByParking :parkingOptions=getParkingOptions @parking-filter-event="FilterByParking"></FilterByParking>
-        <FilterByPrice :max=getMaxPriceRange :min=getMinPriceRange :selectedValueProp=getMaxPriceRange @price-filter-event="FilterByPrice"></FilterByPrice>
+
+        <div class="row">
+            <div class="col-xl-3  col-lg-4 col-md-6 cardConteiner">
+                <FilterByBedrooms :bedsOptions=getBedsOptions @bedrooms-filter-event="FilterByBedrooms"></FilterByBedrooms>
+            </div>
+            <div class="col-xl-3  col-lg-4 col-md-6 cardConteiner">
+                <FilterByBathrooms :bathsOptions=getBathOptions @bathrooms-filter-event="FilterByBathrooms">
+                </FilterByBathrooms>
+            </div>
+            <div class="col-xl-3  col-lg-4 col-md-6 cardConteiner">
+                <FilterByParking :parkingOptions=getParkingOptions @parking-filter-event="FilterByParking">
+                </FilterByParking>
+            </div>
+            <div class="col-xl-3  col-lg-4 col-md-6 cardConteiner">
+                <FilterByPrice :max=getMaxPriceRange :min=getMinPriceRange :selectedValueProp=getMaxPriceRange
+                    @price-filter-event="FilterByPrice"></FilterByPrice>
+            </div>
+        </div>
     </div>
 </template>
     
@@ -58,7 +72,7 @@ export default {
             }, Infinity);
         },
         getMaxPriceRange() {
-            return  this.propertiesList.reduce((max, item) => {
+            return this.propertiesList.reduce((max, item) => {
                 if (item['Sale Price'] > max) {
                     return item['Sale Price'];
                 }
@@ -73,21 +87,26 @@ export default {
             }
         },
     },
-        methods: {
-            FilterByBedrooms(bedrooms) {
-                this.selectedBedrooms = bedrooms
-            },
-            FilterByBathrooms(bathrooms) {
-                this.selectedBathrooms = bathrooms
-            },
-            FilterByParking(parking) {
-                this.selectedParking = parking
-            },
-            FilterByPrice(price) {
-                this.selectedPrice = price
-            },
+    methods: {
+        FilterByBedrooms(bedrooms) {
+            this.selectedBedrooms = bedrooms
         },
-    }
+        FilterByBathrooms(bathrooms) {
+            this.selectedBathrooms = bathrooms
+        },
+        FilterByParking(parking) {
+            this.selectedParking = parking
+        },
+        FilterByPrice(price) {
+            this.selectedPrice = price
+        },
+    },
+}
 </script>
     
-<style scoped></style>
+<style scoped>
+#filterConteinerComponent{
+   background-color: azure;
+   padding: 40px;
+}
+</style>

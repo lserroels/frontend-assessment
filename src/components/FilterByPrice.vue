@@ -1,7 +1,9 @@
 <template>
-    <div id="filterByPriceComponent">
-        <h4>Price range:</h4>
-        <div>
+    <div id="filterByPriceComponent" class="row">
+        <div class="col-6">
+        <h5>Price range:</h5>
+        </div>
+        <div class="col-6">  
             <input type="range" v-model="selectedValue" :min="min" :max="max" @change="filterByPrice" />
             <span>{{ selectedValue }}</span>
         </div>
@@ -29,4 +31,9 @@ export default {
 }
 </script>
   
-<style scoped></style>
+<style scoped>
+h5{
+    text-align: end;
+}
+
+</style>

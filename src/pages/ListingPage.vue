@@ -1,6 +1,9 @@
 <template>
   <div id="listing">
-    <h1>Properties List</h1>
+    <div id="header">
+      <h1>ListingProperties.com</h1>
+    </div>
+
     <FilterConteiner :propertiesList=items @filter="ApplyFilters"></FilterConteiner>
     <Grid :list=itemsFiltered></Grid>
   </div>
@@ -26,15 +29,15 @@ export default {
     FilterConteiner
   },
   methods: {
-    getPropertiesList(){
+    getPropertiesList() {
       IndexService.getIndexData()
-      .then(properties => {
-        this.items = properties
-        this.itemsFiltered = properties
-      })
-      .catch(error => {
-        console.error(error.message);
-      });
+        .then(properties => {
+          this.items = properties
+          this.itemsFiltered = properties
+        })
+        .catch(error => {
+          console.error(error.message);
+        });
     },
     ApplyFilters(items) {
       this.itemsFiltered = items
@@ -42,3 +45,18 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+#header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  background-color: cadetblue;
+  color: aliceblue;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#listing{  
+  background-color: rgb(233, 244, 245);
+}
+</style>

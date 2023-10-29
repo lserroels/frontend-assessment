@@ -16,7 +16,15 @@ export default {
   
 <style scoped>
 #imageComponent {
-  border: solid 3px;
   border-radius: 6px;
+  justify-content: center;
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  background-color:gainsboro
+
+}
+img{
+  border-radius: 5px;
+
 }
 </style>

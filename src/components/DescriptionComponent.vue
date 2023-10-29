@@ -15,4 +15,8 @@ export default {
 }
 </script>
   
-<style scoped></style>
+<style scoped>
+#DescriptionComponent{
+    margin-top: 20px;
+}
+</style>

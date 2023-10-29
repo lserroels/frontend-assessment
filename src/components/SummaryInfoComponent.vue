@@ -4,23 +4,23 @@
         <div class="row">
             <div class="col-md-2">
                 <h2>{{Bedrooms}}</h2>
-                <h3>BED</h3>
+                <h5>BED</h5>
             </div>
             <div class="col-md-2">
                 <h2>{{Bathrooms}}</h2>
-                <h3>BATH</h3>
+                <h5>BATH</h5>
             </div>
             <div class="col-md-2">
                 <h2>{{Parking}}</h2>
-                <h3>PARKING</h3>
+                <h5>PARKING</h5>
             </div>            
             <div class="col-md-3">
                 <h2>{{Sqft}}</h2>
-                <h3>SQFT</h3>
+                <h5>SQFT</h5>
             </div>            
             <div class="col-md-3">
                 <h2>{{YearBuilt}}</h2>
-                <h3>YEAR BUILT</h3>
+                <h5>YEAR BUILT</h5>
             </div>
         </div>
     </div>
@@ -40,4 +40,18 @@ export default {
 }
 </script>
   
-<style scoped></style>
+<style scoped>
+#SummaryInfoComponent{
+    margin-top: 20px;
+    padding: 10px;
+    border: solid 2px gainsboro;
+}
+
+div.row div{
+text-align: center;
+}
+
+h5 {
+    color: grey;
+}
+</style>

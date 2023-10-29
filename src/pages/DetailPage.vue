@@ -1,10 +1,12 @@
 <template>
   <div id="detail">
-    <h1>Detail for ID: {{ $route.params.id }} </h1>
+    <div id="header">
+    <h1>More Info</h1>
+    </div>
     <HeaderDetail :title=property.Title :location=property.Location :price="property['Sale Price']"
       :dateListed=property.DateListed></HeaderDetail>
     <div class="row">
-      <div class="col-md-8">
+      <div class="body col-md-8">
         <ImageCustom :url=property.PictureURL></ImageCustom>
         <SummaryInfo :Bathrooms=property.Bathrooms :Bedrooms=property.Bedrooms :Parking=property.Parking :Sqft=property.Sqft :YearBuilt=property.YearBuilt></SummaryInfo>
         <Description :Description=property.Description></Description>
@@ -53,3 +55,20 @@ export default {
   }
 };
 </script>
+<style scoped>
+#header{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+  background-color: cadetblue;
+  color: aliceblue;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#detail{  
+  background-color: rgb(233, 244, 245);
+}
+.body{  
+  padding: 40px;
+}
+</style>

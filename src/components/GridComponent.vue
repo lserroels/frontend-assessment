@@ -2,7 +2,7 @@
     <div id="gridComponent">
         
     <div class="row">
-            <div v-for="home in list" :key="home.id" class="col-md-3">
+            <div v-for="home in list" :key="home.id" class="col-xl-3  col-lg-4 col-md-6 cardConteiner">
                 <Card :propertyInfo=home></Card>
             </div>
     </div>
@@ -21,7 +21,8 @@ export default {
 </script>
   
 <style scoped>
-ul {
-    list-style: none;
+.cardConteiner{
+    padding: 20px;
+    
 }
 </style>
